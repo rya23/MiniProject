@@ -1,3 +1,17 @@
+////Things to do
+//Implement a better sorting algorithm
+//Exception Handling
+//Loops initialization numbering
+//Better names
+
+
+
+
+
+
+
+
+
 import java.util.Scanner;
 
 class Job {
