@@ -2,9 +2,7 @@
 // Aarya Thakur, Mustafa Sarangpurwala, Kishan Wali, Vivek Parte
 // Write a program in Java to solve Job Sequencing problem
 
-
 import java.util.Scanner;
-
 
 //Initializing Constructor "Job" to store data of each job
 
@@ -17,7 +15,7 @@ class Job {
         this.profit = profit;
     }
 
-    //Method to print data 
+    // Method to print data
 
     public void printdata() {
         System.out.print("ID : " + id);
@@ -25,10 +23,9 @@ class Job {
         System.out.println("\tDeadLine : " + deadline);
     }
 
-
 }
 
-// Class Solve to obtain maximum deadline possible 
+// Class Solve to obtain maximum deadline possible
 
 class solve {
     public int maxdeadline(Job[] arr, int n) {
@@ -47,12 +44,11 @@ class solve {
         return (result[j] == 0);
     }
 
-
 }
-//Main class
+// Main class
 
 public class Main {
-//Method to Bubble sort to arrange profit in descending order
+    // Method to Bubble sort to arrange profit in descending order
 
     static void sort(Job[] arr, int n) {
         System.out.println(arr[1].profit);
@@ -71,11 +67,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Job[] arr= new Job[0];
-        int n=0;
+        Job[] arr = new Job[0];
+        int n = 0;
         System.out.println("By Team No:27");
 
-        //Switch Case
+        // Switch Case
 
         System.out.println("1. Manual Input  \t 2. Automatic input");
         Scanner sc = new Scanner(System.in);
@@ -94,7 +90,7 @@ public class Main {
                     arr[i] = new Job(i + 1, profit, deadline);
                     arr[i].printdata();
                 }
-            break;
+                break;
             }
             case 2: {
                 n = 4;
@@ -103,16 +99,16 @@ public class Main {
                 arr[1] = new Job(2, 10, 1);
                 arr[2] = new Job(3, 40, 2);
                 arr[3] = new Job(4, 20, 2);
-                 break;
+                break;
 
             }
-           
+
             default:
                 System.out.println("Wrong input");
 
         }
 
-        //Printing Question
+        // Printing Question
 
         sort(arr, n);
         for (int i = 0; i < n; i++) {
@@ -122,7 +118,8 @@ public class Main {
 
         }
 
-        //Filling the empty slots in result[] array and arranging them in the jobs in the possible order
+        // Filling the empty slots in result[] array and arranging them in the jobs in
+        // the possible order
 
         solve s = new solve();
         int max = s.maxdeadline(arr, n);
@@ -130,7 +127,7 @@ public class Main {
 
         int countJobs = 0, jobProfit = 0;
 
-        int[] result = new int[max+1];
+        int[] result = new int[max + 1];
         for (int i = 0; i < n; i++) {
             for (int j = arr[i].deadline; j > 0; j--) {
                 if (s.findslot(result, j)) {
@@ -141,20 +138,18 @@ public class Main {
                 }
             }
         }
-        
+
         System.out.println("Jobs Done : ");
         for (int i = 1; i <= max; i++) {
-            if(result[i]==0) continue;
-            arr[result[i]-1].printdata(); 
+            if (result[i] == 0)
+                continue;
+            arr[result[i] - 1].printdata();
         }
 
-        //Printing the No of jobs and profits obtained
+        // Printing the No of jobs and profits obtained
 
-         System.out.println ("Job : " + countJobs + "\t Profit : " + jobProfit);
+        System.out.println("Job : " + countJobs + "\t Profit : " + jobProfit);
 
     }
 
 }
-
-
-
