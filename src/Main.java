@@ -1,4 +1,4 @@
-//BY team No:27 
+// By team No:27 
 // Aarya Thakur, Mustafa Sarangpurwala, Kishan Wali, Vivek Parte
 // Write a program in Java to solve Job Sequencing problem
 
@@ -89,6 +89,13 @@ public class Main {
                     int deadline = sc.nextInt();
                     arr[i] = new Job(i + 1, profit, deadline);
                     arr[i].printdata();
+
+                    // CLosed Scanner
+                    try {
+                        // switch case code here
+                    } finally {
+                        sc.close();
+                    }
                 }
                 break;
             }
