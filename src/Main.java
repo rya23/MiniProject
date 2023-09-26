@@ -1,11 +1,3 @@
-//Things to do
-//Implement a better sorting algorithm
-//Exception Handling
-//Loops initialization numbering
-//Better names
-
-
-
 
 import java.util.Scanner;
 
@@ -104,8 +96,9 @@ public class Main {
                 for (int i = 1; i <= n; i++) {
                     arr[i].printdata();
 
-                }
 
+                }
+                System.out.println("");
                 break;
             }
             default:
@@ -114,22 +107,24 @@ public class Main {
         }
 
         sort(arr, n);
-        System.out.println("\n\n\nAfter Sorting");
+        System.out.println("After Sorting\n");
+
         for (int i = 1; i <= n; i++) {
             arr[i].printdata();
 
         }
+        System.out.println("");
         solve s = new solve();
         int max = s.maxdeadline(arr, n);
-        System.out.println("Max Deadline : " + max);
+        System.out.println("Max Deadline : " + max + "\n");
         int countJobs = 0, jobProfit = 0;
         int[] result = new int[max+1];
         for (int i = 1; i <= n; i++) {
             for (int j = arr[i].deadline; j > 0; j--) {
                 if (s.findslot(result, j)) {
-                    result[j] = i;
                     countJobs++;
                     jobProfit += arr[i].profit;
+                    result[j] = i;
                     break;
                 }
             }
@@ -142,7 +137,7 @@ public class Main {
 
 
         }
-        System.out.println("Job : " + countJobs + "\t Profit : " + jobProfit);
+        System.out.println("\nNo. of Jobs Done : " + countJobs + "\t Max Profit : " + jobProfit);
 
     }
 
